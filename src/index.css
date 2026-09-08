@@ -1,0 +1,104 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  * {
+    @apply scroll-smooth;
+  }
+
+  html {
+    @apply bg-jingju-black text-jingju-cream;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+  }
+
+  /* 滚动条美化 */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-jingju-black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-jingju-red rounded;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-jingju-gold;
+  }
+}
+
+@layer components {
+  /* 京剧风格容器 */
+  .jingju-container {
+    @apply relative w-full max-w-screen-xl mx-auto px-4 md:px-8;
+  }
+
+  /* 舞台效果背景 */
+  .stage-bg {
+    @apply relative overflow-hidden bg-gradient-to-b from-jingju-black via-jingju-gray to-jingju-black;
+    box-shadow: inset 0 0 100px rgba(26, 26, 26, 0.8);
+  }
+
+  /* 京剧标题样式 */
+  .jingju-title {
+    @apply font-serif text-4xl md:text-5xl font-bold text-jingju-red tracking-wide;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  .jingju-subtitle {
+    @apply font-serif text-xl md:text-2xl text-jingju-gold mt-2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  }
+
+  /* 按钮样式 */
+  .btn-jingju {
+    @apply px-8 py-3 bg-jingju-red text-jingju-cream font-serif font-bold rounded-sm transition-all duration-300 hover:bg-jingju-gold hover:text-jingju-black active:scale-95 focus:outline-none focus:ring-2 focus:ring-jingju-gold focus:ring-offset-2 focus:ring-offset-jingju-black;
+  }
+
+  .btn-jingju-outline {
+    @apply px-8 py-3 border-2 border-jingju-gold text-jingju-gold font-serif font-bold rounded-sm transition-all duration-300 hover:bg-jingju-gold hover:text-jingju-black active:scale-95 focus:outline-none;
+  }
+
+  /* 装饰性边框 */
+  .jingju-border {
+    @apply border-2 border-jingju-gold relative;
+  }
+
+  .jingju-border::before,
+  .jingju-border::after {
+    @apply absolute w-3 h-3 border-jingju-gold bg-jingju-black;
+    content: '';
+  }
+
+  .jingju-border::before {
+    @apply top-0 left-0 border-t-2 border-l-2;
+  }
+
+  .jingju-border::after {
+    @apply bottom-0 right-0 border-b-2 border-r-2;
+  }
+}
+
+@layer utilities {
+  /* 文字发光效果 */
+  .glow-red {
+    @apply drop-shadow-lg;
+    filter: drop-shadow(0 0 20px rgba(196, 30, 58, 0.6));
+  }
+
+  .glow-gold {
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6));
+  }
+
+  /* 居中网格 */
+  .center-grid {
+    @apply flex items-center justify-center;
+  }
+}
